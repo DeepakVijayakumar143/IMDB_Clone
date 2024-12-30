@@ -1,0 +1,22 @@
+.loginForm-container {
+  margin: 20%;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+}
+.link {
+  text-decoration: none;
+  margin-bottom: 10px;
+}
+.sign {
+  color: var(--primary-color-dark);
+  margin-left: 10px;
+  font-weight: bold;
+}
+.link:visited {
+  color: var(--primary-color-dark);
+}
+.link:hover {
+  color: var(--primary-color-dark);
+}

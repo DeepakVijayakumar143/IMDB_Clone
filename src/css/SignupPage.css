@@ -1,0 +1,50 @@
+.signup-container {
+  display: flex;
+  flex-direction: row; /* Default layout for larger devices */
+  height: 100vh;
+}
+
+.signup-modal-section {
+  width: 60%;
+}
+
+.signup-image-section {
+  width: 40%;
+}
+
+.signup-image {
+  width: 100%;
+  min-height: 90%;
+  object-fit: cover; /* Maintain aspect ratio */
+}
+.copyright {
+  text-align: center;
+  color: gray;
+}
+/* Responsive styles for small and extra small devices */
+@media (max-width: 768px) {
+  /* Adjust for tablets and smaller devices */
+  .signup-container {
+    flex-direction: column; /* Stack elements vertically */
+  }
+
+  .signup-image-section {
+    width: 100%; /* Full width */
+    height: 25vh; /* Occupy 25% of viewport height */
+    order: -1; /* Place the image section on top */
+  }
+
+  .signup-image {
+    width: 100%; /* Full width */
+    height: 100%; /* Ensure the image fills the section */
+    object-fit: cover; /* Maintain aspect ratio */
+  }
+
+  .signup-modal-section {
+    width: 100%; /* Full width */
+    height: 75vh; /* Occupy the remaining 75% of viewport height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
