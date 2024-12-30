@@ -43,7 +43,9 @@ const SignupForm = ({ users, setUsers }) => {
       <h1>Welcome to IMDB👋</h1>
       <p>Today is a new day. It's your day. You shape it. Sign up to start.</p>
       <form className="form" onSubmit={handleSignin}>
-        <label htmlFor="username">Email</label>
+        <label htmlFor="username" className="label">
+          Email
+        </label>
         <TextField
           id="username"
           label="example@email.com"
@@ -52,7 +54,9 @@ const SignupForm = ({ users, setUsers }) => {
           onChange={(e) => setUserid(e.target.value)}
           sx={{ marginBottom: "10px" }}
         ></TextField>
-        <label htmlFor="password">Password</label>
+        <label htmlFor="password" className="label">
+          Password
+        </label>
         <TextField
           id="password"
           label="Atleast 8 characters"
@@ -61,7 +65,9 @@ const SignupForm = ({ users, setUsers }) => {
           onChange={(e) => setUserPassword(e.target.value)}
           sx={{ marginBottom: "10px" }}
         ></TextField>
-        <label htmlFor="confirm-password">Confirm Password</label>
+        <label htmlFor="confirm-password" className="label">
+          Confirm Password
+        </label>
         <TextField
           id="confirm-password"
           label="Atlest 8 characters"

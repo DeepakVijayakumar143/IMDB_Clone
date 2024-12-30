@@ -19,6 +19,7 @@
   justify-content: space-around;
 }
 .h3-background {
-  background-color: blue;
+  background-color: var(--primary-color-dark);
+  color: #fff;
   text-align: center;
 }

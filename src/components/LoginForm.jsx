@@ -31,6 +31,7 @@ const LoginForm = ({ users }) => {
 
     // Set cookie
     Cookies.set("authToken", encryptedToken, {
+      domain: "https://imdb-clone-ruddy-pi.vercel.app/",
       secure: true, // Ensure cookies are secure
       expires: 1 / 144, // 10 minutes
     });
@@ -48,7 +49,9 @@ const LoginForm = ({ users }) => {
       <h1>Welcome Back👋</h1>
       <p>Today is a new day. It's your day. You shape it. Sign in to start.</p>
       <form className="form" onSubmit={() => handleLogin(event)}>
-        <label htmlFor="username">Email</label>
+        <label htmlFor="username" className="label">
+          Email
+        </label>
         <TextField
           id="username"
           label="example@email.com"
@@ -57,7 +60,9 @@ const LoginForm = ({ users }) => {
           onChange={(e) => setUserid(e.target.value)}
           sx={{ marginBottom: "10px" }}
         ></TextField>
-        <label htmlFor="password">Password</label>
+        <label htmlFor="password" className="label">
+          Password
+        </label>
         <TextField
           id="password"
           label="Enter your password"
