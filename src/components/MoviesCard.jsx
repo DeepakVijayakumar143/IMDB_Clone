@@ -4,7 +4,7 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import CardActionArea from "@mui/material/CardActionArea";
-import MoviePage from "../pages/MovieModal";
+import MovieModal from "../pages/MovieModal";
 
 export default function ActionAreaCard({ movie }) {
   const [openMoviesModal, setOpenMoviesModal] = React.useState(false);
@@ -41,11 +41,11 @@ export default function ActionAreaCard({ movie }) {
           </CardContent>
         </CardActionArea>
       </Card>
-      <MoviePage
+      <MovieModal
         setOpenMoviesModal={setOpenMoviesModal}
         openMoviesModal={openMoviesModal}
         movie={movie}
-      ></MoviePage>
+      ></MovieModal>
     </>
   );
 }

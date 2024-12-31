@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import MoviesCard from "../components/MoviesCard";
 import "../css/RenderCards.css";
-import { Box, CircularProgress } from "@mui/material";
+import { CircularProgress } from "@mui/material";
 const RenderCards = () => {
   const TMDB_API_KEY = "3937772d46b20fca4e9026261576ecbf";
   const BASE_URL = "https://api.themoviedb.org/3";

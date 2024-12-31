@@ -6,15 +6,13 @@ import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import InputBase from "@mui/material/InputBase";
-import Badge from "@mui/material/Badge";
 import MenuItem from "@mui/material/MenuItem";
 import Menu from "@mui/material/Menu";
-import MenuIcon from "@mui/icons-material/Menu";
 import SearchIcon from "@mui/icons-material/Search";
 import AccountCircle from "@mui/icons-material/AccountCircle";
-import MailIcon from "@mui/icons-material/Mail";
-import NotificationsIcon from "@mui/icons-material/Notifications";
 import MoreIcon from "@mui/icons-material/MoreVert";
+import Cookies from "js-cookie";
+import { useNavigate } from "react-router-dom";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -73,20 +71,28 @@ export default function PrimarySearchAppBar() {
     searchMovies(searchQuery); // Trigger search immediately as the user types
   };
 
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    // Remove the auth token cookie
+    Cookies.remove("authToken", { path: "/" });
+
+    // Redirect to the sign-in page
+    navigate("/signin");
+  };
+
   // Fetch search results based on query
   const searchMovies = async (query) => {
     if (!query) return; // Don't search if query is empty
 
     setLoading(true);
     try {
-      // API key (replace 'your_tmdb_api_key' with a valid API key)
       const TMDB_API_KEY = "3937772d46b20fca4e9026261576ecbf";
       const encodedQuery = encodeURIComponent(query); // URL encode the query
       const response = await fetch(
         `https://api.themoviedb.org/3/search/movie?api_key=${TMDB_API_KEY}&query=${encodedQuery}&language=en-US`
       );
 
-      // Log the response for debugging
       const data = await response.json();
 
       if (!response.ok) {
@@ -153,7 +159,7 @@ export default function PrimarySearchAppBar() {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <MenuItem onClick={handleMenuClose}>Logout</MenuItem>
+      <MenuItem onClick={handleLogout}>Logout</MenuItem>
     </Menu>
   );
 
@@ -181,6 +187,7 @@ export default function PrimarySearchAppBar() {
           aria-controls="primary-search-account-menu"
           aria-haspopup="true"
           color="inherit"
+          onClick={handleLogout}
         >
           <AccountCircle />
         </IconButton>
@@ -191,7 +198,7 @@ export default function PrimarySearchAppBar() {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="fixed">
+      <AppBar position="static" sx={{ backgroundColor: "#2046cf" }}>
         <Toolbar>
           <Typography
             variant="h6"
@@ -248,7 +255,20 @@ export default function PrimarySearchAppBar() {
         ) : searchResults.length > 0 ? (
           <Box sx={{ display: "flex", flexWrap: "wrap" }}>
             {searchResults.map((movie) => (
-              <Box key={movie.id} sx={{ margin: 2 }}>
+              <Box
+                key={movie.id}
+                sx={{
+                  margin: 2,
+                  backgroundColor: "#f5faff",
+                  border: "1px solid #d1e4f5",
+                  borderRadius: "10%",
+                  cursor: "pointer",
+                  p: "10px",
+                }}
+                onClick={() => {
+                  console.log("test");
+                }}
+              >
                 <Typography>{movie.title}</Typography>
               </Box>
             ))}

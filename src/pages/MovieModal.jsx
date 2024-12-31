@@ -10,7 +10,7 @@ import { useTheme } from "@mui/material/styles";
 import Avatar from "@mui/material/Avatar";
 import "../css/MovieModal.css";
 
-export default function MoviePage({
+export default function MovieModal({
   openMoviesModal,
   setOpenMoviesModal,
   movie,
