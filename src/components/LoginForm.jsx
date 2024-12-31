@@ -31,7 +31,7 @@ const LoginForm = ({ users }) => {
 
     // Set cookie
     Cookies.set("authToken", encryptedToken, {
-      domain: "https://imdb-clone-ruddy-pi.vercel.app/",
+      domain: "imdb-clone-ruddy-pi.vercel.app/",
       secure: true, // Ensure cookies are secure
       expires: 1 / 144, // 10 minutes
     });

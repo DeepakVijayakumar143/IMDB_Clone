@@ -5,6 +5,7 @@ import LoginPage from "./pages/LoginPage";
 import SignupPage from "./pages/SignupPage";
 import Homepage from "./pages/Homepage";
 import ProtectedRoute from "./components/ProtectedRoute";
+import PageNotFound from "./components/PageNotFound";
 function App() {
   const [users, setUsers] = useState([
     { username: "user1", password: "password" },
@@ -15,21 +16,22 @@ function App() {
       <Routes>
         <Route path="/" element={<Navigate to="/signin" />} />
         <Route
-          path="/signin"
+          path="signin"
           element={<LoginPage users={users}></LoginPage>}
         ></Route>
         <Route
-          path="/signup"
+          path="signup"
           element={<SignupPage users={users} setUsers={setUsers} />}
         ></Route>
         <Route
-          path="/movies"
+          path="movies"
           element={
             <ProtectedRoute>
               <Homepage />
             </ProtectedRoute>
           }
         />
+        <Route path="*" element={<PageNotFound />}></Route>
       </Routes>
     </BrowserRouter>
   );
